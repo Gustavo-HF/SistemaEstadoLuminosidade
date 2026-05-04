@@ -1,0 +1,189 @@
+/* Importando uma fonte que lembra o estilo do jogo */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Courier Prime', monospace;
+    /* Fonte monoestilo */
+    background-color: #000;
+    /* Fundo totalmente preto como o White Space */
+    color: #fff;
+    image-rendering: pixelated;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card com borda dupla estilo caixa de diálogo de OMORI */
+.card {
+    background: #000;
+    padding: 25px;
+    border: 4px solid #fff;
+    outline: 2px solid #000;
+    box-shadow: inset 0 0 0 2px #fff;
+    /* Cria o efeito de borda dupla */
+    width: 380px;
+    text-align: center;
+    position: relative;
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Informações */
+.info p {
+    margin: 12px 0;
+    font-size: 18px;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 5px;
+}
+
+.info strong {
+    color: #b0f2ff;
+    /* Um azul claro etéreo comum no jogo */
+}
+
+/* Seções */
+.section {
+    margin-top: 25px;
+    padding-top: 10px;
+}
+
+/* Botões Estilo Menu de Batalha */
+.btn {
+    margin: 8px;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    background: transparent;
+    color: white;
+    font-family: 'Courier Prime', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+/* Efeito de seleção igual ao jogo */
+.btn:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* Cores específicas baseadas em emoções do jogo */
+.btn.on {
+    border-color: #2ecc71;
+    /* Felicidade (Verde) */
+    color: #2ecc71;
+}
+
+.btn.on:hover {
+    background: #2ecc71;
+    color: #000;
+}
+
+.btn.off {
+    border-color: #e74c3c;
+    /* Raiva (Vermelho) */
+    color: #e74c3c;
+}
+
+.btn.off:hover {
+    background: #e74c3c;
+    color: #000;
+}
+
+/* Input e Formulários */
+input {
+    background: #000;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 8px;
+    font-family: 'Courier Prime', monospace;
+    width: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+    background: #222;
+}
+
+/* Detalhe extra: a mãozinha/cursor de seleção do Omori */
+.btn:hover::before {
+    content: '▶';
+    position: absolute;
+    left: -20px;
+    color: #fff;
+}
+
+/* Container da lâmpada e o fio */
+.bulb-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* O fio da lâmpada */
+.bulb-container::before {
+    content: '';
+    width: 2px;
+    height: 50px;
+    background-color: #fff;
+}
+
+/* A lâmpada baseada no estilo de OMORI */
+.bulb {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #fff;
+    border-radius: 50% 50% 45% 45%;
+    position: relative;
+    background: #000;
+    transition: all 0.3s ease;
+}
+
+/* Base da lâmpada (o bocal) */
+.bulb::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    background: #fff;
+}
+
+/* ESTADO: LIGADA (Cores vibrantes ou branco brilhante) */
+.bulb.on {
+    background-color: #fff;
+    box-shadow: 0 0 30px #fff, 0 0 60px #fff;
+}
+
+/* ESTADO: DESLIGADA (Preta com um "X" dentro ou apenas escura) */
+.bulb.off {
+    background-color: #000;
+}
+
+/* O "X" dentro da lâmpada apagada (detalhe artístico) */
+.bulb.off::before {
+    content: '×';
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}

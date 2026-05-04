@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Iluminação Inteligente</title>
+    <meta charset="UTF-8">
+
+    <!-- Importando CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Omori</h1>
+
+            <div class="bulb-container">
+                <div th:class="${estado.ledLigado} ? 'bulb on' : 'bulb off'"></div>
+            </div>
+
+            <div class="info">
+                <p><b>Modo:</b> <span th:text="${estado.modo}"></span></p>
+                <p><b>LED:</b> <span th:text="${estado.ledLigado}"></span></p>
+                <p><b>Luminosidade:</b> <span th:text="${estado.luminosidade}"></span></p>
+                <p><b>Threshold:</b> <span th:text="${estado.threshold}"></span></p>
+            </div>
+
+            <hr>
+
+            <div class="section">
+                <h3>Modo</h3>
+                <form action="/modo" method="post">
+                    <button class="btn" name="modo" value="AUTOMATICO">Automático</button>
+                    <button class="btn" name="modo" value="MANUAL">Manual</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h3>Controle do LED</h3>
+                <form action="/led" method="post">
+                    <button class="btn on" name="estado" value="true">Ligar</button>
+                    <button class="btn off" name="estado" value="false">Desligar</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h3>Threshold</h3>
+                <form action="/config/threshold" method="post">
+                    <input type="number" name="valor" placeholder="Novo threshold">
+                    <button class="btn" type="submit">Salvar</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Atualização automática -->
+    <script>
+        setInterval(() => {
+            window.location.reload();
+        }, 3000);
+    </script>
+
+</body>
+
+</html>
