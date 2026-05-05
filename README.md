@@ -19,12 +19,16 @@ Este projeto é um sistema de iluminação inteligente inspirado na estética do
 - MySQL Server rodando.
 - [Cloudflare (cloudflared)](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-it-fast/quick-start/) ou Ngrok instalado.
 
+
+![Projeto](Images/Projeto.png)
+
+
 ### 2. Configuração do Banco de Dados
 Crie um banco de dados no seu MySQL Workbench:
 ```sql
 CREATE DATABASE iluminacao;
 
-![Projeto](Images/Projeto.png)
+
 
 
 
